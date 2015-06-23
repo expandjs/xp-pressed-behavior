@@ -12,16 +12,16 @@ This behavior is used to add press capabilities on the context element.
 @behavior xp-pressed-behavior
 @description A behavior used to add press capabilities on the context element
 @keywords web app, html5, expandjs, web-components
-@group states
+@group behaviors
 @homepage http://expandjs.com/elements/xp-pressed-behavior
 
-@behavior xp-focused-behavior http://expandjs.com/elements/xp-focused-behavior
-@behavior xp-targeter-behavior http://expandjs.com/elements/xp-targeter-behavior
+@behavior xp-focused-behavior http://expandjs.com/elements/xp-focused-behavior#0.9.1
+@behavior xp-targeter-behavior http://expandjs.com/elements/xp-targeter-behavior#0.9.1
 
-@dependency polymer Polymer/polymer
-@dependency expandjs ExpandJS/expandjs
-@dependency xp-focused-behavior ExpandJS/xp-focused-behavior
-@dependency xp-targeter-behavior ExpandJS/xp-targeter-behavior
+@dependency polymer Polymer/polymer#^1.0.4
+@dependency expandjs ExpandJS/expandjs#0.9.1
+@dependency xp-focused-behavior ExpandJS/xp-focused-behavior#0.9.1
+@dependency xp-targeter-behavior ExpandJS/xp-targeter-behavior#0.9.1
 -->
 
 <link rel="import" href="../polymer/polymer.html">
@@ -80,8 +80,8 @@ This behavior is used to add press capabilities on the context element.
         // LISTENERS
         listeners: {
             click: '_clickHandler',
-            mousedown: '_touchHandler',
-            mouseup: '_touchHandler'
+            down: '_touchHandler',
+            up: '_touchHandler'
         },
 
         // PROPERTIES
@@ -158,7 +158,7 @@ This behavior is used to add press capabilities on the context element.
 
         // HANDLER
         _touchHandler: function (event) {
-            this._setPressed(event.type === 'mousedown');
+            this._setPressed(event.type === 'down');
         }
     };
 
