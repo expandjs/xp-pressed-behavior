@@ -15,13 +15,13 @@ This behavior is used to add press capabilities on the context element.
 @group behaviors
 @homepage http://expandjs.com/elements/xp-pressed-behavior
 
-@behavior xp-focused-behavior http://expandjs.com/elements/xp-focused-behavior
-@behavior xp-targeter-behavior http://expandjs.com/elements/xp-targeter-behavior
+@behavior xp-focused-behavior /bower_components/xp-focused-behavior/xp-focused-behavior.html
+@behavior xp-targeter-behavior /bower_components/xp-targeter-behavior/xp-targeter-behavior.html
 
 @dependency polymer Polymer/polymer#^1.0.0
-@dependency expandjs ExpandJS/expandjs#0.9.4
-@dependency xp-focused-behavior ExpandJS/xp-focused-behavior#0.9.4
-@dependency xp-targeter-behavior ExpandJS/xp-targeter-behavior#0.9.4
+@dependency expandjs ExpandJS/expandjs#0.9.5
+@dependency xp-focused-behavior ExpandJS/xp-focused-behavior#0.9.5
+@dependency xp-targeter-behavior ExpandJS/xp-targeter-behavior#0.9.5
 -->
 
 <link rel="import" href="../polymer/polymer.html">
@@ -71,6 +71,9 @@ This behavior is used to add press capabilities on the context element.
 
             // Setting
             if (self.toggleable) { self.active = !self.active; }
+
+            // Toggling
+            if (self.togglesTarget && target && target.toggle) { target.toggle(self, self.data); }
 
             return self;
         },
@@ -129,6 +132,19 @@ This behavior is used to add press capabilities on the context element.
              */
             toggleable: {
                 observer: '_toggleableChanged',
+                reflectToAttribute: true,
+                type: Boolean,
+                value: false
+            },
+
+            /**
+             * If set to true, the target's `toggle` method is called on press.
+             *
+             * @attribute toggles-target
+             * @type boolean
+             * @default false
+             */
+            togglesTarget: {
                 reflectToAttribute: true,
                 type: Boolean,
                 value: false
