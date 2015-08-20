@@ -2,6 +2,7 @@
   "name": "xp-pressed-behavior",
   "license": "BSD-3-Clause",
   "version": "0.9.6",
+  "main": "xp-pressed-behavior.html",
   "description": "A behavior used to add press capabilities on the context element",
   "homepage": "http://expandjs.com/elements/xp-pressed-behavior",
   "authors": [
@@ -14,9 +15,6 @@
     "html5",
     "expandjs",
     "web-components"
-  ],
-  "main": [
-    "xp-pressed-behavior.html"
   ],
   "ignore": [
     "**/.*"
