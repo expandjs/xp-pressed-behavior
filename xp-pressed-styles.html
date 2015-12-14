@@ -7,41 +7,39 @@ The complete set of contributors may be found at https://expandjs.github.io/CONT
 -->
 
 <!--
-This stylesheet is used to stylize a pressable element.
+A stylesheet used to stylize a pressable element.
 
 @stylesheet xp-pressed-styles
 @description A stylesheet used to stylize a pressable element
-@keywords web app, html5, expandjs, web-components
+@keywords expandjs, web app, custom elements, web-components
 @group stylesheets
+
 @homepage http://expandjs.com/elements/xp-pressed-styles
 @repository https://github.com/ExpandJS/xp-pressed-behavior
 
-@dependency polymer Polymer/polymer#^1.1.0
+@dependency polymer Polymer/polymer#^1.2.0
+@dependency xp-focused-behavior ExpandJS/xp-focused-behavior#0.10.0
 -->
 
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../xp-focused-behavior/xp-focused-styles.html">
 
 <dom-module id="xp-pressed-styles">
 
-    <template>
+    <template strip-whitespace>
+
+        <style include="xp-focused-styles"></style>
 
         <style>
             :host {
                 cursor: pointer;
                 display: inline-block;
-                outline: 0;
-                overflow: visible;
                 position: relative;
                 text-align: left;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                -webkit-tap-highlight-color: transparent;
-                -webkit-user-select: none;
-                user-select: none;
             }
 
-            :host([disabled]) {
-                cursor: not-allowed !important;
+            :host([tap-disabled]) {
                 pointer-events: none !important;
             }
         </style>
